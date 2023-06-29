@@ -59,6 +59,9 @@ RUN pip install Pillow
 COPY sd_cache /root/.cache
 COPY webui.sh webui.sh
 
+# 忽略git权限校验
+RUN git config --global --add safe.directory '*'
+
 EXPOSE 7860
 
 # sudo docker run -it --rm --gpus all -p 7860:7860 -v /home/dell/liweixiang/stable-diffusion-webui/webui.sh:/app/webui.sh -v /home/dell/liweixiang/stable-diffusion-webui/models/:/app/models jianbing/sd:dev1 bash
